@@ -47,7 +47,7 @@ const Signin = () => {
                             <label className="anim">
                                 <input type="checkbox" className="checkbox" />
                                 <span>Remember Me</span>
-                                <a href="#">Forgot Password</a>
+                                <a href>Forgot Password</a>
                             </label>
                             <div className="clear" />
                             <div className="submit-agileits">
@@ -56,7 +56,7 @@ const Signin = () => {
                             <div className="another-login">
                                 <p>Or login with</p>
                                 <i className="fab fa-facebook-f" />
-                                <i className="fab fa-google" />
+                                <i className="fab fa-google" onClick={google}/>
                             </div>
                             <footer style={{ fontSize: 'clamp(10px,3vw,15px)' }}>
                                 <span>Do not have an account?</span>
@@ -80,3 +80,46 @@ const Signin = () => {
 }
 
 export default Signin;
+// /auth/userinfo.email
+	// /auth/userinfo.profile
+	// 599875005570-1assl06808a63q5j7brvehlp5ieqgp2b.apps.googleusercontent.com
+// Password 
+const CLIENT_ID	= "599875005570-1assl06808a63q5j7brvehlp5ieqgp2b.apps.googleusercontent.com";
+const LINK_GET_TOKEN = `https://accounts.google.com/o/oauth2/v2/auth?
+scope=https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile&
+response_type=token&
+redirect_uri=https://nha-que-di-code.vercel.app/&
+client_id=${CLIENT_ID}`;
+
+function google(){
+	window.location.href = LINK_GET_TOKEN;
+}
+// Lấy token 
+const getToken = () => {
+	const saveAccessToken = window.localStorage.getItem("access_token");
+	if (saveAccessToken) {
+	return saveAccessToken;
+	} else {
+	const url = new URLSearchParams (window.location.hash.substring(1));
+	const token = url.get("access_token");
+	window.localStorage.setItem("access_token");
+	return token;
+	}
+	};
+	const getUserInfo = async () => {
+	const accessToken = getToken();
+	const respone = await fetch(
+	`https://www.googleapis.com/oauth2/v3/userinfo?access_token=${accessToken}`
+	);
+	const data = await respone.json();
+	renderUI(data);
+	};
+	getUserInfo();
+const renderUI = (data) => {
+const avatar = document.getElementById("avatar");
+const name = document.getElementById("name");
+const mail = document.getElementById("mail");
+avatar.src = data.picture;
+name.innerText = data.name;
+mail.innerText = data.email;
+};
