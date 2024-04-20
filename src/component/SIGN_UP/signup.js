@@ -4,67 +4,34 @@ import { Link } from 'react-router-dom';
 const Signup = () => {
     return (
         <div>
-            <div>
-                {/*header*/}
-                <div className="header-w3l-up">
-                    <h1>Register</h1>
-                </div>
-                {/*main*/}
-                <div className="main-agileinfo-up">
-                    {/*form-stars-here*/}
-                    <div className="wthree-form-up">
-                        <h2>HR: Driving Success Through People.</h2>
-                        <form action="#" method="post">
-                            <div className="form-sub-w3-up">
-                                <input type="text" name="Username" placeholder="Username " required />
-                                <div className="icon-w3-up">
-                                    <i className="fa fa-user" aria-hidden="true" />
-                                </div>
-                            </div>
-                            <div className="form-sub-w3-up">
-                                <input type="email" name="Email" placeholder="Email " required />
-                                <div className="icon-w3-up">
-                                    <i className="far fa-envelope" />
-                                </div>
-                            </div>
-                            <div className="form-sub-w3-up">
-                                <input type="password" name="password" id="password" placeholder="Password " required />
-                                {/* pass */}
-                                <div className="showPass-up">
-                                    <i className="far fa-eye fa-regular" id="eye1" />
-                                </div>
-                                <div className="icon-w3-up">
-                                    <i className="fas fa-unlock-alt" />
-                                </div>
-                            </div>
-                            <div className="form-sub-w3-up">
-                                <input type="password" name="password" id="re-password" placeholder="Re-Enter the password " required />
-                                {/* re-pass */}
-                                <div className="showPass-up">
-                                    <i className="far fa-eye fa-regular" id="eye" />
-                                </div>
-                                <div className="icon-w3-up">
-                                    <i className="fa-solid fa-key" />
-                                </div>
-                            </div>
-                            {/* <div class="clear-up"></div> */}
-                            <div className="submit-agileits-up">
-                                <input type="submit" defaultValue="Register" />
-                            </div>
-                            <div className="another-login-up">
-                                <p>Or register with</p>
-                                <i className="fab fa-facebook-f" />
-                                <i className="fab fa-google" />
-                            </div>
-                            <footer style={{ fontSize: 'clamp(10px,3vw,15px)' }}>
-                                <span>You already have an account?</span>
-                                <span><Link to="/"  style={{ textDecoration: 'none', color: 'rgb(53, 215, 215)' }}>Login now!</Link></span>
-                            </footer>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
+         <form action method="POST" className="form" id="form-1" style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}>
+  <h3 className="heading">Đăng ký</h3>
+  <p className="desc">Cùng nhau khám phá hệ sinh thái của nhà quê đi code ❤️</p>
+  <div className="spacer" />
+  <div className="form-group">
+    <label htmlFor="fullname" className="form-label">Tên đầy đủ</label>
+    <input id="fullname" name="fullname" type="text" placeholder="VD: Tuấn Đặng" className="form-control" required/>
+    <span className="form-message" />
+  </div>
+  <div className="form-group">
+    <label htmlFor="email" className="form-label">Email</label>
+    <input id="email" name="email" type="email" placeholder="VD: email@domain.com" className="form-control" required />
+    <span className="form-message" />
+  </div>
+  <div className="form-group">
+    <label htmlFor="password" className="form-label">Mật khẩu</label>
+    <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" className="form-control" required />
+    <span className="form-message" />
+  </div>
+  <div className="form-group">
+    <label htmlFor="password_confirmation" className="form-label">Nhập lại mật khẩu</label>
+    <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" className="form-control"  required/>
+    <span className="form-message" />
+  </div>
+  <button className="form-submit">Đăng ký</button>
+  <div className style={{marginTop: 10, fontSize: 12}}>Bạn đã có tài khoản? <span> <Link to='/' style={{color: '#ff6f00',cursor:'pointer'}}>Đăng nhập ngay!</Link></span></div>
+</form>
+ 
         </div>
     );
 }
