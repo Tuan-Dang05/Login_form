@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
     
     return (
         <div>
-
-            <form action method="POST" className="form" id="form-2" style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}>
+            <div className=''>
+            {/* <img className='col-12' src='./image/bg2.gif' alt='bg' style={{backgroundSize:'cover',backgroundPosition:'center',backgroundAttachment:'fixed',WebkitBackgroundSize:'cover'}}/> */}
+            <form action method="POST" className="form" id="form-2" style={{margin:'0 auto',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}>
                 <h3 className="heading">Đăng Nhập</h3>
                 <p className="desc" style={{marginBottom:'-15px'}}>Cùng nhau khám phá hệ sinh thái của nhà quê đi code ❤️</p>
                 <div className="spacer" />
@@ -33,7 +34,7 @@ import { Link } from 'react-router-dom';
                 </div>
                 <div className style={{ marginTop: 10, fontSize: 12 }}>Bạn chưa có tài khoản? <span> <Link to="/signup" style={{ color: '#ff6f00',cursor:'pointer' }}> Đăng kí ngay!</Link></span></div>
             </form>
-
+            </div>
         </div>
     );
 }
@@ -43,7 +44,7 @@ const CLIENT_ID = "599875005570-1assl06808a63q5j7brvehlp5ieqgp2b.apps.googleuser
 const LINK_GET_TOKEN = `https://accounts.google.com/o/oauth2/v2/auth?
 scope=https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile&
 response_type=token&
-redirect_uri=https://nha-que-di-code.vercel.app/&
+redirect_uri=https://nha-que-di-code-user.vercel.app/&
 client_id=${CLIENT_ID}`;
 
 function google(){

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Signup = () => {
     return (
         <div>
-         <form action method="POST" className="form" id="form-1" style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}>
+         <form action method="POST" className="form" id="form-1" style={{margin:'0 auto',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}>
   <h3 className="heading">Đăng ký</h3>
   <p className="desc">Cùng nhau khám phá hệ sinh thái của nhà quê đi code ❤️</p>
   <div className="spacer" />
