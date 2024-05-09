@@ -1,0 +1,13 @@
+.register_alert{
+    animation: aniRegister .5s ease-in-out;
+}
+@keyframes aniRegister{
+    from{
+        top: -100px;
+        opacity: 0;
+    }
+    to{
+        top: 10;
+        opacity: 1;
+    }
+}
